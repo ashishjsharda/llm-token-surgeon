@@ -5,9 +5,9 @@ First off — thank you. Every star, issue, and PR helps developers save money o
 ## Quick start
 
 ```bash
-git clone https://github.com/ashish/llm-token-surgeon
+git clone https://github.com/ashishjsharda/llm-token-surgeon
 cd llm-token-surgeon
-pip install -e ".[dev]"
+pip install -e ".[main]"
 pytest
 ```
 
