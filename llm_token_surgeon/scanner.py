@@ -6,7 +6,6 @@ Detects variables named *prompt*, *system*, *instruction*, *message*, *template*
 import ast
 import re
 from pathlib import Path
-from typing import Iterator
 
 
 PROMPT_VAR_PATTERNS = re.compile(

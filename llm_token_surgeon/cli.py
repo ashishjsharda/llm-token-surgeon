@@ -3,7 +3,6 @@ llm-surgeon CLI — analyze and optimize your LLM prompts from the terminal.
 """
 
 import json
-import sys
 from pathlib import Path
 from typing import Optional
 
@@ -11,7 +10,6 @@ import typer
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
-from rich import print as rprint
 
 from .surgeon import Surgeon, PRICING
 from .scanner import scan_file, scan_directory
@@ -92,9 +90,6 @@ def analyze(
     console.print(table)
 
     total_pct = round((1 - total_opt / total_orig) * 100, 1) if total_orig else 0
-    surgeon_total = Surgeon(model=model)
-    dummy = surgeon_total.optimize(" " * total_orig)
-    from .surgeon import PRICING
     price = PRICING.get(model, {}).get("input", 2.50)
     saved_tokens = total_orig - total_opt
     monthly = round(saved_tokens / 1_000_000 * price * calls_per_day * 30, 2)
