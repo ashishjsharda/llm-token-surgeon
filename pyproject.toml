@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llm-token-surgeon"
+version = "0.1.0"
+description = "Cut your LLM API bill by 30-70% with zero accuracy loss"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Ashish Sharda", email = "ashishjsharda@gmail.com" }]
+keywords = ["llm", "openai", "anthropic", "tokens", "cost", "optimization", "prompt"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "tiktoken>=0.6.0",
+    "typer>=0.12.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.4.0",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+llm-surgeon = "llm_token_surgeon.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ashishjsharda/llm-token-surgeon"
+Repository = "https://github.com/ashishjsharda/llm-token-surgeon"
+Issues = "https://github.com/ashishjsharda/llm-token-surgeon/issues"
+Changelog = "https://github.com/ashishjsharda/llm-token-surgeon/blob/main/CHANGELOG.md"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
